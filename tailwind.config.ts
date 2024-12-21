@@ -50,7 +50,7 @@ export default {
         xl: "1614px",
       },
       gridTemplateColumns: {
-        "auto-fill": "repeat(auto-fill, minmax(220px, 260px))",
+        "auto-fill": "repeat(auto-fill, minmax(200px, 1fr))",
       },
     },
   },

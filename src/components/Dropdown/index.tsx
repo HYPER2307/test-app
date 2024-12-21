@@ -1,13 +1,13 @@
-import { Dispatch, FC, SetStateAction } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import cn from "classnames";
+import { FC } from "react";
 import { IDropdownItem } from "./types";
 
 interface Props {
   options: IDropdownItem[];
   currentOption: IDropdownItem | null;
-  onItemSelect?: Dispatch<SetStateAction<IDropdownItem | null>>;
+  onItemSelect?: (category: IDropdownItem) => void;
   title?: string;
   className?: string;
 }
@@ -42,18 +42,18 @@ export const Dropdown: FC<Props> = ({
 
       <MenuItems
         transition
-        className="absolute right-0 z-10 mt-2 h-44 w-56 origin-top-right overflow-scroll rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+        className="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
       >
         <div className="py-1">
           {!options.length ? (
             <span className="px-2 text-black">List empty</span>
           ) : (
             <>
-              {options.map(({ id, label }) => (
+              {options.map(({ id, label, slug }) => (
                 <MenuItem key={id}>
                   <div
                     className="block cursor-pointer px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
-                    onClick={() => onItemSelect({ id, label })}
+                    onClick={() => onItemSelect({ id, label, slug })}
                   >
                     {label}
                   </div>

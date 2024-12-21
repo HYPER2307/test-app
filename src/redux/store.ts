@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { vehicle } from "./vehicles copy/slice";
-import { vehicles } from "./vehicles/slice";
+import { filters } from "./filters/slice";
+import { products } from "./products/slice";
+import { sorting } from "./sorting/slice";
 
 export const store = configureStore({
   reducer: combineReducers({
-    vehicles,
-    vehicle,
+    products,
+    filters,
+    sorting,
   }),
 });
 

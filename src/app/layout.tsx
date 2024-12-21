@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Header } from "@/components/Header";
 import { Providers } from "@/redux/providers";
 import "./globals.css";
 
@@ -29,7 +30,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} h-screen antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <>
+            <Header />
+            {children}
+          </>
+        </Providers>
       </body>
     </html>
   );

@@ -1,0 +1,180 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+    "price": 59.99,
+    "category": "Electronics",
+    "description": "High-quality wireless headphones with noise cancellation."
+  },
+  {
+    "id": 2,
+    "name": "Smartphone",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 799.99,
+    "category": "Electronics",
+    "description": "Latest model smartphone with high resolution display."
+  },
+  {
+    "id": 3,
+    "name": "Coffee Maker",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+    "price": 29.99,
+    "category": "Home Appliances",
+    "description": "Automatic coffee maker with timer and multiple brew settings."
+  },
+  {
+    "id": 4,
+    "name": "Yoga Mat",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 19.99,
+    "category": "Fitness",
+    "description": "Non-slip yoga mat with extra cushioning for comfort."
+  },
+  {
+    "id": 5,
+    "name": "Gaming Laptop",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 1299.99,
+    "category": "Electronics",
+    "description": "Powerful gaming laptop with advanced cooling system."
+  },
+  {
+    "id": 6,
+    "name": "Running Shoes",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 49.99,
+    "category": "Fitness",
+    "description": "Lightweight running shoes with excellent grip and comfort."
+  },
+  {
+    "id": 7,
+    "name": "Blender",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 39.99,
+    "category": "Home Appliances",
+    "description": "High-speed blender with multiple blending modes."
+  },
+  {
+    "id": 8,
+    "name": "Electric Kettle",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 24.99,
+    "category": "Home Appliances",
+    "description": "Fast-boil electric kettle with automatic shut-off."
+  },
+  {
+    "id": 9,
+    "name": "Treadmill",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 499.99,
+    "category": "Fitness",
+    "description": "Compact treadmill with adjustable speed settings."
+  },
+  {
+    "id": 10,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 11,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 12,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 13,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 14,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 15,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 16,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 17,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 18,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 19,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  },
+  {
+    "id": 20,
+    "name": "Tablet",
+    "image": "https://i.ibb.co/VHRpHj3/photo-1523275335684-37898b6baf30.webp",
+
+    "price": 299.99,
+    "category": "Electronics",
+    "description": "Portable tablet with long battery life and high performance."
+  }
+]

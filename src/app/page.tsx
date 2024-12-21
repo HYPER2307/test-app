@@ -1,77 +1,110 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/Button";
-import { Dropdown } from "@/components/Dropdown";
-import { IDropdownItem } from "@/components/Dropdown/types";
-import { useAppDispatch } from "@/hooks/redux";
-import { getVehiclesAsync } from "@/redux/vehicles/actions";
-import { selectVehiclesData } from "@/redux/vehicles/selectors";
-import { CAR_YEARS } from "@/constants/years";
+import { SortingParams } from "@/@types";
 import { Sizes } from "@/@types/sizes";
+import { BreadCrumbs } from "@/components/BreadCrumbs";
+import { IBreadCrumbsItem } from "@/components/BreadCrumbs/types";
+import { Filtering } from "@/components/Filtering";
+import { Loader } from "@/components/Loader";
+import { Pagination } from "@/components/Pagination";
+import { RenderCards } from "@/components/ProductCard/RenderCards";
+import { Sorting } from "@/components/Sorting";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import { selectFiltersState } from "@/redux/filters/selectors";
+import { getProductsAsync } from "@/redux/products/actions";
+import { selectIsLoading, selectProductData } from "@/redux/products/selectors";
+import { selectSortingState } from "@/redux/sorting/selectors";
+import { useEffect, useState } from "react";
+
+const productsPerPage = 8;
 
 export default function Home() {
-  const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const dispatch = useAppDispatch();
-  const vehiclesData = useSelector(selectVehiclesData);
 
-  const [selectedVehicleMake, setSelectedVehicleMake] =
-    useState<IDropdownItem | null>(null);
-  const [selectedVehicleYear, setSelectedVehicleYear] =
-    useState<IDropdownItem | null>(null);
+  const productsData = useAppSelector(selectProductData);
+  const isLoading = useAppSelector(selectIsLoading);
+  const { minPrice, maxPrice, currentCategory } =
+    useAppSelector(selectFiltersState);
 
-  const { Results } = vehiclesData || {};
+  const { sortParam } = useAppSelector(selectSortingState);
 
-  const isButtonActive =
-    Boolean(selectedVehicleMake) && Boolean(selectedVehicleYear);
+  const filteredProducts = productsData.filter(
+    ({ category, price }) =>
+      price >= minPrice &&
+      price <= maxPrice &&
+      (currentCategory.label === "Default" ||
+        category === currentCategory.label)
+  );
 
-  const handleNext = () => {
-    router.push(
-      `/result/${selectedVehicleMake?.id}/${selectedVehicleYear?.id}`
-    );
+  const products = filteredProducts.length ? filteredProducts : productsData;
+
+  const sortProducts = () => {
+    const productsCopy = [...products];
+
+    switch (sortParam.slug) {
+      case SortingParams.PRICE_ASC:
+        return productsCopy.sort((a, b) => a.price - b.price);
+
+      case SortingParams.PRICE_DESC:
+        return productsCopy.sort((a, b) => b.price - a.price);
+
+      default:
+        return productsCopy;
+    }
   };
 
-  const vehiclesMakes: IDropdownItem[] =
-    Results?.map(({ MakeId, MakeName }) => ({
-      id: MakeId,
-      label: MakeName,
-    })) || [];
+  const sortedProducts = sortProducts();
+
+  console.log(products, sortedProducts);
+
+  const pagesCount = Math.ceil(products.length / productsPerPage);
+
+  const firstProductIndex = (currentPage - 1) * productsPerPage;
+  const lastProductIndex = firstProductIndex + productsPerPage;
+
+  const paginatedProducts = sortedProducts.slice(
+    firstProductIndex,
+    lastProductIndex
+  );
+
+  const breadCrumbsItems: IBreadCrumbsItem[] = [{ name: "Home" }];
 
   useEffect(() => {
-    dispatch(getVehiclesAsync());
-  }, [dispatch]);
+    if (!productsData.length) {
+      dispatch(getProductsAsync());
+    }
+  }, [dispatch, productsData]);
+
+  if (isLoading) {
+    return <Loader size={Sizes.XXL} />;
+  }
 
   return (
-    <div className="container h-full">
-      <div className="flex h-full flex-col items-center justify-start gap-4 xs:flex-row xs:items-start xs:justify-center">
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <Dropdown
-            options={vehiclesMakes}
-            currentOption={selectedVehicleMake}
-            onItemSelect={setSelectedVehicleMake}
-            title="Select vehicle"
-            className="flex-1"
-          />
+    <div className="container">
+      <BreadCrumbs breadCrumbsItems={breadCrumbsItems} className="mb-10" />
 
-          <Dropdown
-            options={CAR_YEARS}
-            currentOption={selectedVehicleYear}
-            onItemSelect={setSelectedVehicleYear}
-            title="Select year"
-            className="flex-1"
-          />
+      <div className="w-full mb-10">
+        <div className="flex flex-col items-center sm:flex-row-reverse sm">
+          <div className="w-40">
+            <Sorting />
+          </div>
+          <Filtering setCurrentPage={setCurrentPage} />
         </div>
+      </div>
 
-        <Button
-          size={Sizes.M}
-          isDisabled={!isButtonActive}
-          onClick={handleNext}
-        >
-          Next
-        </Button>
+      <div className="flex-1 ">
+        <RenderCards
+          className="grid grid-cols-auto-fill gap-5 justify-items-center mb-10"
+          products={paginatedProducts || []}
+        />
+
+        <Pagination
+          pagesCount={pagesCount}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </div>
   );
