@@ -1,6 +1,6 @@
 import { SortingParams } from "@/@types";
-import { IDropdownItem } from "@/components/Dropdown/types";
 import { createSlice } from "@reduxjs/toolkit";
+import { IDropdownItem } from "@/components/Dropdown/types";
 import { SORTING_SLICE_NAME } from "./actions";
 import { setSortParamReducer } from "./reducers";
 

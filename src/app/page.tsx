@@ -1,7 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { SortingParams } from "@/@types";
-import { Sizes } from "@/@types/sizes";
 import { BreadCrumbs } from "@/components/BreadCrumbs";
 import { IBreadCrumbsItem } from "@/components/BreadCrumbs/types";
 import { Filtering } from "@/components/Filtering";
@@ -14,7 +14,7 @@ import { selectFiltersState } from "@/redux/filters/selectors";
 import { getProductsAsync } from "@/redux/products/actions";
 import { selectIsLoading, selectProductData } from "@/redux/products/selectors";
 import { selectSortingState } from "@/redux/sorting/selectors";
-import { useEffect, useState } from "react";
+import { Sizes } from "@/@types/sizes";
 
 const productsPerPage = 8;
 
@@ -85,8 +85,8 @@ export default function Home() {
     <div className="container">
       <BreadCrumbs breadCrumbsItems={breadCrumbsItems} className="mb-10" />
 
-      <div className="w-full mb-10">
-        <div className="flex flex-col items-center sm:flex-row-reverse sm">
+      <div className="mb-10 w-full">
+        <div className="sm flex flex-col items-center sm:flex-row-reverse">
           <div className="w-40">
             <Sorting />
           </div>
@@ -94,9 +94,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex-1 ">
+      <div className="flex-1">
         <RenderCards
-          className="grid grid-cols-auto-fill gap-5 justify-items-center mb-10"
+          className="mb-10 grid grid-cols-auto-fill justify-items-center gap-5"
           products={paginatedProducts || []}
         />
 

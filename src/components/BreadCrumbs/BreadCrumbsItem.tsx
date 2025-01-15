@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { FC } from "react";
+import Link from "next/link";
 import { IBreadCrumbsItem } from "./types";
 
 export const BreadCrumbsItem: FC<IBreadCrumbsItem> = ({ name, path }) => (

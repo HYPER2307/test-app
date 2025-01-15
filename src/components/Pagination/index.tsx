@@ -1,5 +1,5 @@
-import cn from "classnames";
 import { Dispatch, FC, SetStateAction } from "react";
+import cn from "classnames";
 
 interface Props {
   currentPage: number;
@@ -39,14 +39,14 @@ export const Pagination: FC<Props> = ({
 
   return (
     <nav className="flex w-full justify-center">
-      <ul className="flex items-center -space-x-px h-10 text-base">
+      <ul className="flex h-10 items-center -space-x-px text-base">
         <li
-          className="cursor-pointer flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="ms-0 flex h-10 cursor-pointer items-center justify-center rounded-s-lg border border-e-0 border-gray-300 bg-white px-4 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
           onClick={handlePrevPage}
         >
           <span className="sr-only">Previous</span>
           <svg
-            className="w-3 h-3 rtl:rotate-180"
+            className="h-3 w-3 rtl:rotate-180"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -65,9 +65,9 @@ export const Pagination: FC<Props> = ({
           <li
             key={page}
             className={cn(
-              "flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 cursor-pointer",
+              "flex h-10 cursor-pointer items-center justify-center border border-gray-300 bg-white px-4 leading-tight text-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400",
               {
-                "opacity-80 cursor-not-allowed": page === currentPage,
+                "cursor-not-allowed opacity-80": page === currentPage,
                 "hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white":
                   page !== currentPage,
               }
@@ -79,12 +79,12 @@ export const Pagination: FC<Props> = ({
           </li>
         ))}
         <li
-          className="cursor-pointer flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          className="flex h-10 cursor-pointer items-center justify-center rounded-e-lg border border-gray-300 bg-white px-4 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
           onClick={handleNextPage}
         >
           <span className="sr-only">Next</span>
           <svg
-            className="w-3 h-3 rtl:rotate-180"
+            className="h-3 w-3 rtl:rotate-180"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

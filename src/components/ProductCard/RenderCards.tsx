@@ -1,5 +1,5 @@
-import { IProduct } from "@/@types/products";
 import { FC } from "react";
+import { IProduct } from "@/@types/products";
 import { ProductCard } from ".";
 
 interface Props {

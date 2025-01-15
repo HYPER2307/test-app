@@ -1,20 +1,31 @@
-# Test app - Frontend JS Engineer Test
+# Product Listing Page
 
-This is a frontend application for a test app built with Next.js. The application allows users to filter vehicles by type and model year, displaying the results on a separate page. The app is styled using Tailwind CSS.
+This is a Next.js application for displaying a product listing page. The application allows users to view, filter, and sort products and view detailed information about each product. The project is designed to be responsive and user-friendly.
 
 ## Features
 
-- **Home Page (Filter Page)**: Allows users to select a vehicle make and model year.
-- **Results Page**: Displays a list of vehicle models based on the selected make and model year.
-- **Responsive Design**: The app is built to be fully responsive, providing an optimal user experience on different devices.
-- **Error Handling**: Proper error handling is implemented for API data fetching issues.
+- **Product Listing**: Displays a list of products with the following details:
+  - Product name
+  - Product image
+  - Product price
+- **Filtering**: Filter products by category or price range.
+- **Sorting**: Sort products by price (low to high and high to low).
+- **Product Details**: View detailed information about a product, including a larger image, description, and price.
+- **Search Bar**: Search for products by name.
+- **Next.js Routing**: Navigate to a separate page for product details.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Bonus Features**:
+  - Pagination for large product lists.
+  - State management with Redux or React Context.
+  - Unit tests for filtering and sorting components.
 
 ## Technologies Used
 
-- **Next.js**: For building the React-based application and handling static generation.
-- **Tailwind CSS**: For styling and responsive design.
-- **React Suspense**: Used to manage loading states.
-- **Axios**: For making API requests to fetch vehicle makes and models.
+- **Next.js**: For building the application, routing, and server-side rendering.
+- **React.js**: For building the UI components.
+- **CSS**: For styling the application.
+- **Optional: CSS Framework**: (e.g., Bulma, Tailwind CSS) for faster styling.
+- **Redux or React Context**: For managing application state (optional).
 
 ## Setup Instructions
 
@@ -74,7 +85,7 @@ yarn start
 
 ### Testing
 
-To run tests, use the following command:
+To run unit tests, use the following command:
 
 ```bash
 npm test
@@ -84,7 +95,7 @@ yarn test
 
 ### Linting and Formatting
 
-To check the code with ESLint and Prettier, use:
+To check the code with ESLint, use:
 
 ```bash
 npm run lint
@@ -102,50 +113,55 @@ yarn lint:fix
 
 ## Folder Structure
 
-src/: Contains most of application's code.
-@types/: Presumably for TypeScript types.
-app/: Likely for Next.js pages and components.
-components/: For reusable UI components.
-constants/: For constants like vehicle types or years.
-hooks/: Custom React hooks.
-redux/: Redux-related files.
-services/: For API calls and services. # Project dependencies and scripts
+```plaintext
+src/
+├── components/      # Reusable UI components
+├── pages/           # Pages for Next.js routing
+├── hooks/           # Custom React hooks
+├── redux/           # Redux-related files (optional)
+├── services/        # API calls and data fetching
+└── app/             # Main application logic
+```
 
 ## How the Application Works
 
-1. **Home Page (Filter Page)**:
+1. **Product Listing**:
 
-   - The home page allows users to filter vehicles based on make and model year.
-   - The makes are fetched from the [NHTSA API](https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json).
-   - Users can select the make from a dropdown and choose a model year from 2015 to the current year.
+   - Products are fetched from a static JSON file or mock API.
+   - Each product displays its name, image, and price.
 
-2. **Results Page**:
+2. **Filtering**:
 
-   - After selecting a make and year, users click the "Next" button, which navigates to a result page displaying the available vehicle models.
-   - The vehicle models are fetched using the [NHTSA API](https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/{makeId}/modelyear/{year}?format=json).
-   - The result page uses dynamic routing to display the models for the selected make and year.
+   - Users can filter products by category or price range using dropdowns or sliders.
 
-3. **Static Paths**:
+3. **Sorting**:
 
-   - The result pages are statically generated using `generateStaticParams`, which fetches the makes and years and generates the paths for the results pages.
+   - Products can be sorted by price in ascending or descending order.
 
-4. **Loading States**:
-   - React's `Suspense` component is used to show a loading indicator while fetching data from the API.
+4. **Product Details**:
 
-## Configuration
+   - Clicking on a product displays detailed information on a new page using Next.js routing.
 
-### Environment Variables
+5. **Search Bar**:
 
-The application requires an `.env.local` file for any necessary environment configurations. This file should be placed in the root directory and can contain keys like:
+   - Users can search for products by name, with results updating in real-time.
 
-```
+6. **Pagination** (Optional):
+   - Large product lists are paginated to improve performance and user experience.
+
+## Environment Variables
+
+The application requires environment variables, defined in a `.env.local` file in the root directory. Example:
+
+```env
 NEXT_PUBLIC_API_BASE_URL=<your-api-base-url>
 ```
 
-## Screencast
+## Additional Notes
 
-[DEMO](https://www.loom.com/share/2931ffb6b2e5448581dd2535c84ec0ce?sid=b09a5116-8fe1-46a0-90b1-6514eae478ce)
+- **Responsive Design**: The application is styled to look good on both desktop and mobile devices.
+- **Extensibility**: The architecture allows for easy addition of new features like more filters or additional pages.
 
 ## Conclusion
 
-This application demonstrates the ability to build a frontend app using Next.js, fetch data from external APIs, and implement a responsive UI with Tailwind CSS. It also showcases best practices like static generation, error handling, and loading states with React Suspense.
+This application demonstrates the ability to build a feature-rich product listing page using Next.js. It incorporates best practices for component design, state management, and responsive UI development. Bonus features like search, pagination, and unit tests further enhance the functionality and maintainability of the app.

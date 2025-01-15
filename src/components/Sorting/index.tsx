@@ -15,7 +15,7 @@ export const Sorting = () => {
 
   return (
     <div className="mb-10 flex-1 sm:mb-0">
-      <h4 className="text-2xl font-semibold mb-2">Sorting</h4>
+      <h4 className="mb-2 text-2xl font-semibold">Sorting</h4>
 
       <Dropdown
         options={SORTING_DROPDOWN_OPTIONS}

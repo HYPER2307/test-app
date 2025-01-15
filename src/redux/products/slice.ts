@@ -1,5 +1,5 @@
-import { IProduct } from "@/@types/products";
 import { createSlice } from "@reduxjs/toolkit";
+import { IProduct } from "@/@types/products";
 import { PRODUCTS_SLICE_NAME } from "./actions";
 import { getProductsAsyncReducer } from "./reducers";
 

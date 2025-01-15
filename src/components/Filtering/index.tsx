@@ -1,7 +1,7 @@
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { setCurrentCategory, setMinMaxPrice } from "@/redux/filters/actions";
 import { selectFiltersState } from "@/redux/filters/selectors";
-import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import { Dropdown } from "../Dropdown";
 import { IDropdownItem } from "../Dropdown/types";
 import { RangeSwiper } from "../RangeSwiper";
@@ -39,9 +39,9 @@ export const Filtering: FC<Props> = ({ setCurrentPage }) => {
   }, [dispatch, currentMinMaxValue, minPrice, maxPrice]);
 
   return (
-    <div className="flex flex-col items-center min-w-40 w-full gap-10 xs:flex-row xs:justify-center sm:justify-start">
+    <div className="flex w-full min-w-40 flex-col items-center gap-10 xs:flex-row xs:justify-center sm:justify-start">
       <div className="w-40">
-        <h4 className="text-2xl font-semibold mb-2">Price</h4>
+        <h4 className="mb-2 text-2xl font-semibold">Price</h4>
 
         <RangeSwiper
           minSize={minValue}
@@ -55,7 +55,7 @@ export const Filtering: FC<Props> = ({ setCurrentPage }) => {
       </div>
 
       <div>
-        <h4 className="text-2xl font-semibold mb-2">Category</h4>
+        <h4 className="mb-2 text-2xl font-semibold">Category</h4>
 
         <Dropdown
           options={CATEGORIES_DROPDOWN_OPTIONS}

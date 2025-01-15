@@ -1,7 +1,7 @@
+import { FC } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import cn from "classnames";
-import { FC } from "react";
 import { IDropdownItem } from "./types";
 
 interface Props {

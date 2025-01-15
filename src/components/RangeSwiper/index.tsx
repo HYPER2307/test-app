@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Range, getTrackBackground } from "react-range";
+import { getTrackBackground, Range } from "react-range";
 
 interface Props {
   minSize: number;
@@ -22,7 +22,7 @@ export const RangeSwiper: FC<Props> = ({
 }) => {
   return (
     <div className="flex flex-col items-start">
-      <div className="flex justify-between text-12 w-full">
+      <div className="text-12 flex w-full justify-between">
         <span>{currentMinValue} $</span>
         <span>{currentMaxValue} $</span>
       </div>
@@ -47,7 +47,7 @@ export const RangeSwiper: FC<Props> = ({
           >
             <div
               ref={props.ref}
-              className="h-2 w-full border border-brown-base rounded-full"
+              className="border-brown-base h-2 w-full rounded-full border"
               style={{
                 background: getTrackBackground({
                   values: [currentMinValue, currentMaxValue],
@@ -69,7 +69,7 @@ export const RangeSwiper: FC<Props> = ({
             <div
               key={key}
               {...restProps}
-              className={`h-3 w-3 bg-brown-base rounded-full border-2 bg-white ${
+              className={`bg-brown-base h-3 w-3 rounded-full border-2 bg-white ${
                 isDragged ? "border-brown-dark" : "border-brown-light"
               } outline-none`}
               style={{

@@ -1,6 +1,6 @@
-import { IProduct } from "@/@types/products";
 import { instance } from "@/services/api-client";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { IProduct } from "@/@types/products";
 
 export const PRODUCTS_SLICE_NAME = "products";
 

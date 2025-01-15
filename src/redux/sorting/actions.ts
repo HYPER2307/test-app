@@ -1,5 +1,5 @@
-import { IDropdownItem } from "@/components/Dropdown/types";
 import { createAction } from "@reduxjs/toolkit";
+import { IDropdownItem } from "@/components/Dropdown/types";
 
 export const SORTING_SLICE_NAME = "sorting";
 

@@ -1,5 +1,5 @@
-import { IDropdownItem } from "@/components/Dropdown/types";
 import { createSlice } from "@reduxjs/toolkit";
+import { IDropdownItem } from "@/components/Dropdown/types";
 import { FILTERS_SLICE_NAME } from "./actions";
 import { setCurrentCategoryReducer, setMinMaxPriceReducer } from "./reducers";
 
